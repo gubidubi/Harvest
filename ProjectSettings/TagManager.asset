@@ -11,7 +11,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Character
   - 
   - 
   - 
@@ -40,4 +40,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Scene-Bg
+    uniqueID: 1624223049
+    locked: 0
+  - name: Character
+    uniqueID: 1669767769
     locked: 0
