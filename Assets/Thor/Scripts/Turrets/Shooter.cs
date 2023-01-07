@@ -12,16 +12,16 @@ public class Shooter : StaticShooting
     {
         player = GameObject.FindWithTag("Player");
         water = 100;
+        delay = 2f;
+        numBullets = 20;
         //verificar qual o modo da arma
         if(turret)
         {
-            delay = 2f;
             beingHandled = false;
         }
 
         else
         {
-            numBullets = 20;
             beingHandled = true;
         }
     }
