@@ -10,5 +10,6 @@ public class maxDistance : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        //destruindo a bala se ela viaja muito longe
     }
 }

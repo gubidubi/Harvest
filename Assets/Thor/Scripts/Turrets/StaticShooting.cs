@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class StaticShooting : MonoBehaviour
 {
-    private bool beingHandled = false;
+    [HideInInspector]public bool beingHandled;
     public Transform firePoint;
     public GameObject bulletPrefab;
     public float force = 20f;
-    public float delay;
+    [HideInInspector]public float delay; //tempo entre os disparos
+    public int numBullets;
+    public float water;
 
     // Update is called once per frame
-    void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         if(!beingHandled)
         {
@@ -23,10 +25,7 @@ public class StaticShooting : MonoBehaviour
     {
         beingHandled = true;
 
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        bullet.transform.SetParent(gameObject.transform);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.right * force, ForceMode2D.Impulse);
+        Shoot();
         
         yield return new WaitForSeconds(delay);
         beingHandled = false;
@@ -35,5 +34,13 @@ public class StaticShooting : MonoBehaviour
     void OnEnable()
     {
         beingHandled = false;
+    }
+
+    public void Shoot()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        bullet.transform.SetParent(gameObject.transform.parent);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        rb.AddForce(firePoint.right * force, ForceMode2D.Impulse);
     }
 }
