@@ -21,6 +21,55 @@ public class DayNightScript : MonoBehaviour
     public GameObject[] lights; // all the lights we want on when its dark
     public SpriteRenderer[] stars; // star sprites 
     // Start is called before the first frame update
+    
+
+    //CORES:
+
+        public enum DayCycles // Enum with day and night cycles, you can change or modify with whatever you want
+    {
+        Sunrise = 0,
+        Day = 1,
+        Sunset = 2,
+        Night = 3,
+        Midnight = 4
+    }
+
+    [Header("Controllers")]
+    
+    [Tooltip("Global light 2D component, we need to use this object to place light in all map objects")]
+    public UnityEngine.Rendering.Universal.Light2D globalLight; // global light
+    
+    [Tooltip("This is a current cycle time, you can change for private float but we keep public only for debug")]
+    public float cycleCurrentTime = 0; // current cycle time
+    
+    [Tooltip("This is a cycle max time in seconds, if current time reach this value we change the state of the day and night cyles")]
+    public float cycleMaxTime = 60; // duration of cycle
+
+    [Tooltip("Enum with multiple day cycles to change over time, you can add more types and modify whatever you want to fits on your project")]
+    public DayCycles dayCycle = DayCycles.Sunrise; // default cycle 
+
+    [Header("Cycle Colors")]
+    
+    [Tooltip("Sunrise color, you can adjust based on best color for this cycle")]
+    public Color sunrise; // Eg: 6:00 at 10:00
+    
+    [Tooltip("(Mid) Day color, you can adjust based on best color for this cycle")]
+    public Color day; // Eg: 10:00 at 16:00
+    
+    [Tooltip("Sunset color, you can adjust based on best color for this cycle")]
+    public Color sunset; // Eg: 16:00 20:00
+    
+    [Tooltip("Night color, you can adjust based on best color for this cycle")]
+    public Color night; // Eg: 20:00 at 00:00
+    
+    [Tooltip("Midnight color, you can adjust based on best color for this cycle")]
+    public Color midnight; // Eg: 00:00 at 06:00
+
+    [Header("Objects")]
+    [Tooltip("Objects to turn on and off based on day night cycles, you can use this example for create some custom stuffs")]
+    public UnityEngine.Rendering.Universal.Light2D[] mapLights; // enable/disable in day/night states
+
+
     void Start()
     {
         ppv = gameObject.GetComponent<Volume>();
