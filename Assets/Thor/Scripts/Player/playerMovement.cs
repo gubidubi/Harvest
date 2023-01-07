@@ -30,12 +30,14 @@ public class playerMovement : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
         if(moveX > 0)
         {
-            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            //gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
             //cam.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else if(moveX < 0)
         {
-            gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            //gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
             //cam.transform.rotation *= Quaternion.Euler(0, 180, 0);
         }
 
