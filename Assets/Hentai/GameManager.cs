@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // TODO: colocar essa parte no Game Manager
+    static public GameManager instance;
     static public bool isPaused { get; private set;}
     static public bool isGameActive { get; private set;}
 
@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverMenu;
 
     private void Start() {
+        instance = this;
         Time.timeScale = 0;
         isGameActive = false;
     }
@@ -44,7 +45,7 @@ public class GameManager : MonoBehaviour
     {
         // Linked to resume button on pauseMenu
         pauseMenu.SetActive(false);
-        Time.timeScale = 0;
+        Time.timeScale = 1;
         isPaused = false;
     }
 
