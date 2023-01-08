@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        Debug.Log("Game start!");
         // Linked to start button on startMenu
         isGameActive = true;
         mainMenu.SetActive(false);

@@ -23,6 +23,6 @@ public class FollowPlayer : MonoBehaviour
 
         Vector3 finalPos = Vector3.Lerp(playerPos, mousePos, 0.2f);
 
-        gameObject.GetComponent<Rigidbody>().velocity = (finalPos - gameObject.transform.position) * followSpeed;
+        gameObject.transform.Translate((finalPos - gameObject.transform.position) * followSpeed*Time.deltaTime);
     }
 }
