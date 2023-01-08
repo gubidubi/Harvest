@@ -31,6 +31,10 @@ public class Health : MonoBehaviour
         {
             // Die
             Destroy(gameObject);
+            if (gameObject.CompareTag("Player"))
+            {
+                GameManager.instance.GameOver();
+            }
         }
     }
 }
