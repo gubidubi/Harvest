@@ -22,7 +22,7 @@ public class Health : MonoBehaviour
         AddHealth(-0.01f);
     }
 
-    void AddHealth(float value)
+    public void AddHealth(float value)
     {
         health += value;
         health = Mathf.Min(health, maxHealth);
