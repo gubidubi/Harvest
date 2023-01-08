@@ -11,6 +11,7 @@ public class StaticShooting : MonoBehaviour
     [HideInInspector]public float delay; //tempo entre os disparos
     public int numBullets;
     public float water;
+    [SerializeField]private float speedWaste;
 
     // Update is called once per frame
     public virtual void FixedUpdate()
@@ -18,6 +19,12 @@ public class StaticShooting : MonoBehaviour
         if(!beingHandled)
         {
             StartCoroutine(StaticShoot());
+        }
+        water -= speedWaste;
+
+        if(water <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 

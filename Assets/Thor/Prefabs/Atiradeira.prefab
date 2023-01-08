@@ -85,7 +85,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -129,8 +129,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bc19cba9a6d9bf428a2667cc39af8d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beingHandled: 0
   firePoint: {fileID: 8534930615335132207}
   bulletPrefab: {fileID: 4805242748538764465, guid: 75e1d2d1646f2f041a886ba76aab38a9, type: 3}
   force: 20
   delay: 0
   numBullets: 0
+  water: 0
+  turret: 0
+  speedWaste: 0

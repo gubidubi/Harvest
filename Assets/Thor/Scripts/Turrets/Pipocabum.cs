@@ -2,34 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shooter : StaticShooting
+public class Pipocabum : MonoBehaviour
 {
-    public bool turret;
+    public bool mine;
     private GameObject player;
+    public float force = 20f;
+    public Transform firePoint;
+    public GameObject bulletPrefab;
+    public int numBullets;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        water = 100;
-        delay = 2f;
-        numBullets = 20;
-        //verificar qual o modo da arma
-        if(turret)
-        {
-            beingHandled = false;
-        }
-
-        else
-        {
-            beingHandled = true;
-        }
     }
 
-    public override void FixedUpdate()
+    void Update()
     {
-        base.FixedUpdate();
-
-        if(!turret)
+        if(!mine)
         {
             transform.position = player.transform.position;
             if(player.GetComponent<SpriteRenderer>().flipX == true && 
@@ -43,16 +32,29 @@ public class Shooter : StaticShooting
             {
                 gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             }
-        }
 
+            if(Input.GetKeyDown(KeyCode.E) && numBullets > 0)
+            {
+                numBullets--;
+                Shoot();
+            }
+        }
     }
 
-    void Update()
+    void OnTriggerEnter2D(Collider2D col)
     {
-        if(Input.GetKeyDown(KeyCode.E) && numBullets > 0)
+        if(col.gameObject.tag == "Enemy" && mine)
         {
-            numBullets--;
-            Shoot();
+            Destroy(gameObject);
         }
+    }
+
+    public void Shoot()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        bullet.transform.SetParent(gameObject.transform.parent);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        rb.AddForce(firePoint.right * force, ForceMode2D.Impulse);
     }
 }
+
