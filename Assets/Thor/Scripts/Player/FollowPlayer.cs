@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    private GameObject player;
+    public GameObject player;
     [SerializeField]
     private float followSpeed;
 
@@ -21,8 +21,8 @@ public class FollowPlayer : MonoBehaviour
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = -10f;
 
-        Vector3 finalPos = (playerPos + mousePos) / 2f;
+        Vector3 finalPos = Vector3.Lerp(playerPos, mousePos, 0.2f);
 
-        transform.position = Vector3.Slerp(transform.position, finalPos, followSpeed * Time.deltaTime);
+        gameObject.GetComponent<Rigidbody>().velocity = (finalPos - gameObject.transform.position) * followSpeed;
     }
 }
