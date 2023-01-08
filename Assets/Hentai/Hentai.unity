@@ -430,10 +430,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Default plant
       objectReference: {fileID: 0}
-    - target: {fileID: 2808584130853882363, guid: c5cb9af87733ba4439f2c6336bd78be7, type: 3}
-      propertyPath: drainRate
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5cb9af87733ba4439f2c6336bd78be7, type: 3}
 --- !u!1001 &800145794
@@ -443,18 +439,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 737798352, guid: 290b0f7b1647fb44fb1ca2199c82f618, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 737798353, guid: 290b0f7b1647fb44fb1ca2199c82f618, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -2132098361
-      objectReference: {fileID: 0}
-    - target: {fileID: 972832077, guid: 290b0f7b1647fb44fb1ca2199c82f618, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.3
-      objectReference: {fileID: 0}
     - target: {fileID: 1391988204, guid: 290b0f7b1647fb44fb1ca2199c82f618, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

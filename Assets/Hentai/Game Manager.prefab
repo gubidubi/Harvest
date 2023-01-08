@@ -348,6 +348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 899214471202425727}
   - component: {fileID: 899214471202425724}
+  - component: {fileID: 550100403}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -387,6 +388,18 @@ MonoBehaviour:
   mainMenu: {fileID: 899214472691816690}
   pauseMenu: {fileID: 899214472564347472}
   gameOverMenu: {fileID: 899214471975172384}
+--- !u!114 &550100403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899214471202425725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203ee1a52c90b0c4f849d8fdbcc88aa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &899214471352075221
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,12 +476,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -501,8 +514,8 @@ GameObject:
   m_Component:
   - component: {fileID: 899214471358872849}
   - component: {fileID: 899214471358872850}
-  - component: {fileID: 899214471358872851}
   - component: {fileID: 899214471358872848}
+  - component: {fileID: 425382264}
   m_Layer: 5
   m_Name: Item Stack
   m_TagString: Untagged
@@ -529,7 +542,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 60, y: -60}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &899214471358872850
 CanvasRenderer:
@@ -539,33 +552,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 899214471358872862}
   m_CullTransparentMesh: 1
---- !u!114 &899214471358872851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899214471358872862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 74fa0f30703866d458c0455a804ba571, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
 --- !u!114 &899214471358872848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -578,8 +564,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14103ceb2aaceb0488701d76c5a677e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quantityText: {fileID: 899214471456058760}
   quantity: 999
   destroyOnEmptyStack: 0
+--- !u!114 &425382264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899214471358872862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -85017004, guid: 06843647e4bb1a4479100b123df6c9c4, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &899214471436202685
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,8 +941,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

@@ -5,26 +5,28 @@ using TMPro;
 
 public class ItemStack : MonoBehaviour
 {
+    public TextMeshProUGUI quantityText;
     public int quantity;
     public bool destroyOnEmptyStack;
 
     // Start is called before the first frame update
-    private TextMeshProUGUI quantityText;
     void Start()
     {
-        quantityText = gameObject.GetComponentInChildren<TextMeshProUGUI>();
         UpdateQuantityText();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void UpdateQuantityText()
     {
-        quantityText.text = "x" + quantity;
+        if (quantityText != null)
+        {
+            quantityText.text = "x" + quantity;
+        }
     }
 
     public void ChangeItemQuantity(int value)
