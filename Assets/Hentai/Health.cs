@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        AddHealth(-0.01f);
+
     }
 
     public void AddHealth(float value)
