@@ -10,7 +10,6 @@ public class Shooter : StaticShooting
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        water = 100;
         delay = 2f;
         numBullets = 20;
         //verificar qual o modo da arma

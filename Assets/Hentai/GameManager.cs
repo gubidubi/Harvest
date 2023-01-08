@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         isGameActive = false;
-        UpdateTimescale();
+        UpdateTimeScale();
     }
 
     public void StartGame()
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         // Linked to start button on startMenu
         isGameActive = true;
         mainMenu.SetActive(false);
-        UpdateTimescale();
+        UpdateTimeScale();
     }
 
     void Update()
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     {
         isPaused = true;
         pauseMenu.SetActive(true);
-        UpdateTimescale();
+        UpdateTimeScale();
     }
 
     public void UnpauseGame()
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
         // Linked to resume button on pauseMenu
         isPaused = false;
         pauseMenu.SetActive(false);
-        UpdateTimescale();
+        UpdateTimeScale();
     }
 
     public void ExitGame()
@@ -65,10 +65,10 @@ public class GameManager : MonoBehaviour
     {
         isGameActive = false;
         gameOverMenu.SetActive(true);
-        UpdateTimescale();
+        Invoke("UpdateTimeScale", 0.5f);
     }
 
-    private void UpdateTimescale()
+    private void UpdateTimeScale()
     {
         if (isGameActive && !isPaused)
         {

@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
 {
     public Slider healthBar;
     [SerializeField] float maxHealth = 100;
+    public float regen;
 
     public float health { get; private set; }
 
@@ -19,7 +20,7 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        AddHealth(regen * Time.deltaTime);
     }
 
     public void AddHealth(float value)
