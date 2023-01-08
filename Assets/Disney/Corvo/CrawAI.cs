@@ -29,27 +29,27 @@ public class CrawAI : MonoBehaviour
     public float canDiveDistance;
 
     [Header("Mecânica de Dive")]
-    public Vector2 diveVelocity;
-    public float diveTime;
+    public float setDiveXVelocity;
+    public float setDiveTime;
     public float diveLinearDrag;
     public float diveHeight;
-    [Header("Apenas Visualização:")]
-    [SerializeField] side diveSide;
-    [SerializeField] float diveRange;
-    [SerializeField] float diveForce;
-    [SerializeField] private Vector2 divePoint;
-
 
     [Header("Ponto de Primeira Aproximação (relativo ao Dive Point)")]
 
     public Vector2 firstApproachRelPoint;
     private Vector2 firstApproachAbsPoint;
-    
+    [Header("Apenas Visualização:")]
+    [SerializeField] private Vector2 diveVelocity;
+    [SerializeField] private float diveTime;
+    [SerializeField] private side diveSide;
+    [SerializeField] private float diveRange;
+    [SerializeField] private float diveForce;
+    [SerializeField] private Vector2 divePoint;    
 
-    // Algumas variaveis auxiliares:
-    private float currentForce;
-    private Vector2 direction;
-    private float distance;
+    [Header("Algumas variáveis auxiliares")]
+    [SerializeField] private float currentForce;
+    [SerializeField] private Vector2 direction;
+    [SerializeField] private float distance;
 
 
     private enum side
@@ -82,9 +82,10 @@ public class CrawAI : MonoBehaviour
         animator.Play(strStates[(int)state.fly]);
 
         //Setando algumas "constantes"
-        diveRange = (diveVelocity.x * diveTime) / 2;
-        diveForce = 2 * diveHeight * rb.mass / (diveTime * diveTime); //Cinemática para uma parábola perfeitinha
-
+        diveTime = setDiveTime;
+        diveForce = 2*(diveHeight * rb.mass) / (diveTime * diveTime); //Cinemática para uma parábola perfeitinha
+        diveVelocity = new Vector2(setDiveXVelocity, diveForce*diveTime); 
+        diveRange = (diveVelocity.x * diveTime);
         findTarget();
 
         Debug.Log("Start finalizado");
@@ -93,7 +94,7 @@ public class CrawAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DoTheFlip();
+        DoTheFlip(); 
     }
 
     /// This function is called every fixed framerate frame, if the MonoBehaviour is enabled.
@@ -175,7 +176,7 @@ public class CrawAI : MonoBehaviour
                     if (distance > slowDistance)
                         currentForce = flyForce;
                     else if (distance > changeTargetDistance)
-                        currentForce = flyForce / 2;
+                        currentForce = flyForce / 1.5f;
                     else
                         ChangeState(state.flyToDive);
 
@@ -188,12 +189,13 @@ public class CrawAI : MonoBehaviour
                 }
                 else if (currentState == state.flyToDive)
                 {
+                    currentForce = flyForce;
                     distance = (divePoint - rb.position).magnitude;
                     if (distance > canDiveDistance)
                     {
                         Debug.Log("Can NOT Dive!");
                         direction = (divePoint - rb.position).normalized;
-                        rb.AddForce(direction * flyForce);
+                        rb.AddForce(direction * currentForce);
                     }
                     else
                     {
