@@ -26,7 +26,8 @@ public class CheckIfPlayerIsHere : MonoBehaviour
     /// <param name="other">The other Collider2D involved in this collision.</param>
     private void OnTriggerEnter2D(Collider2D other)
     {
-        playerIsHere = true;
+        if(other.gameObject.tag == "Player")
+            playerIsHere = true;
     }
 
     /// Sent when another object leaves a trigger collider attached to
@@ -35,7 +36,8 @@ public class CheckIfPlayerIsHere : MonoBehaviour
     /// <param name="other">The other Collider2D involved in this collision.</param>
     private void OnTriggerExit2D(Collider2D other)
     {
-        playerIsHere = false;
+      if(other.gameObject.tag == "Player")
+            playerIsHere = false;
     }
 
 
