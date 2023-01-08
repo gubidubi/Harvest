@@ -251,9 +251,9 @@ public class CrawAI : MonoBehaviour
             Debug.DrawRay(divePoint, Vector2.down*0.02f, Color.red, 15f);
 
             if (diveSide == side.left)
-                firstApproachAbsPoint = divePoint - firstApproachRelPoint;
+                firstApproachAbsPoint = divePoint + new Vector2(-1*firstApproachRelPoint.x,firstApproachRelPoint.y);
             else
-                firstApproachAbsPoint = divePoint + firstApproachRelPoint;
+                firstApproachAbsPoint = divePoint + new Vector2(firstApproachRelPoint.x,firstApproachRelPoint.y);
             Debug.DrawRay(firstApproachAbsPoint, Vector2.down*0.02f, Color.white, 15f);
             return true;
         }
