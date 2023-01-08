@@ -1,57 +1,55 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     static public GameManager instance;
-    public bool isPaused { get; private set; }
-    public bool isGameActive { get; private set; }
+    static public bool isPaused { get; private set;}
+    static public bool isGameActive { get; private set;}
 
     public GameObject mainMenu;
     public GameObject pauseMenu;
     public GameObject gameOverMenu;
 
-    private void Start()
-    {
+    private void Start() {
         instance = this;
+        Time.timeScale = 0;
         isGameActive = false;
-        UpdateTimescale();
     }
 
     public void StartGame()
     {
         // Linked to start button on startMenu
-        isGameActive = true;
         mainMenu.SetActive(false);
-        UpdateTimescale();
+        Time.timeScale = 1;
+        isGameActive = true;
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            PauseGame();
+            Pause();
         }
     }
 
-    public void PauseGame()
+    public void Pause()
     {
-        isPaused = true;
         pauseMenu.SetActive(true);
-        UpdateTimescale();
+        Time.timeScale = 0;
+        isPaused = true;
     }
 
-    public void UnpauseGame()
+    public void Unpause()
     {
         // Linked to resume button on pauseMenu
-        isPaused = false;
         pauseMenu.SetActive(false);
-        UpdateTimescale();
+        Time.timeScale = 1;
+        isPaused = false;
     }
 
-    public void ExitGame()
+    public void Exit()
     {
         // Linked to exit button on pauseMenu
         Application.Quit();
@@ -61,23 +59,5 @@ public class GameManager : MonoBehaviour
     {
         isGameActive = false;
         gameOverMenu.SetActive(true);
-        UpdateTimescale();
-    }
-
-    private void UpdateTimescale()
-    {
-        if (isGameActive && !isPaused)
-        {
-            Time.timeScale = 1;
-        }
-        else
-        {
-            Time.timeScale = 0;
-        }
-    }
-
-    public void RestartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
