@@ -37,13 +37,14 @@ public class CrawAI : MonoBehaviour
     [SerializeField] side diveSide;
     [SerializeField] float diveRange;
     [SerializeField] float diveForce;
+    [SerializeField] private Vector2 divePoint;
 
 
     [Header("Ponto de Primeira Aproximação (relativo ao Dive Point)")]
 
     public Vector2 firstApproachRelPoint;
     private Vector2 firstApproachAbsPoint;
-    private Vector2 divePoint;
+    
 
     // Algumas variaveis auxiliares:
     private float currentForce;
@@ -62,7 +63,7 @@ public class CrawAI : MonoBehaviour
         fly, flyToDive, dive, flee, FlyAway
     }
     state currentState;
-    string[] strStates = { "Enemy_Fly", "Enemy_Fly", "Enemy_Dive", "Enemy_Flee", "Enemy_Fly" }; //vetor de string states
+    string[] strStates = { "Crow_Fly", "Crow_Fly", "Crow_Dive", "Crow_Flee", "Crow_Fly" }; //vetor de string states
 
     // Start is called before the first frame update
     void Start()
@@ -74,6 +75,7 @@ public class CrawAI : MonoBehaviour
         player = GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>();
         fearRadius = gameObject.GetComponentInChildren<Rigidbody2D>();
         playerCheck = gameObject.GetComponentInChildren<CheckIfPlayerIsHere>();
+        
 
         // setting initial status
         currentState = state.fly;
@@ -84,6 +86,8 @@ public class CrawAI : MonoBehaviour
         diveForce = 2 * diveHeight * rb.mass / (diveTime * diveTime); //Cinemática para uma parábola perfeitinha
 
         findTarget();
+
+        Debug.Log("Start finalizado");
     }
 
     // Update is called once per frame
@@ -107,11 +111,13 @@ public class CrawAI : MonoBehaviour
         animator.Play(strStates[(int)newState]);
 
         currentState = newState;
+        Debug.Log("newState: " + newState);
 
         if (newState == state.fly || newState == state.flee || newState == state.flyToDive)
             rb.drag = flyLinearDrag;
         else if (newState == state.dive)
         {
+            Debug.Log("DIVE!");
             rb.drag = diveLinearDrag;
             rb.velocity = new Vector2((-1 * ((int)diveSide * 2 - 1)) * diveVelocity.x, -1 * diveVelocity.y);
         }
@@ -135,6 +141,16 @@ public class CrawAI : MonoBehaviour
             sprite.flipX = true;
     }
 
+       IEnumerator Flee()
+    {
+        Debug.Log("Inicio do Flee");
+        ChangeState(state.flee);
+        yield return new WaitForSeconds(fleeTime);
+        Debug.Log("Final do Flee. Mudando Estado para fly");
+        findTarget();
+        ChangeState(state.fly);
+    }
+    
     void MoveEnemy()
     {
         if (currentState == state.flee || currentState == state.FlyAway)
@@ -146,7 +162,11 @@ public class CrawAI : MonoBehaviour
         {
             //Se, na realidade o player está ali, deve corrigir seu estado e iniciar a Co-rotina de fuga
             if (playerCheck.playerIsHere)
-                Flee();
+            {
+                Debug.Log("O corvo vê que o player está aqui.");
+                StartCoroutine(Flee());
+                Debug.Log("Em tese já dei Flee");
+            }
             else
             {
                 if (currentState == state.fly)
@@ -168,19 +188,24 @@ public class CrawAI : MonoBehaviour
                 }
                 else if (currentState == state.flyToDive)
                 {
+                    distance = (divePoint - rb.position).magnitude;
                     if (distance > canDiveDistance)
                     {
+                        Debug.Log("Can NOT Dive!");
                         direction = (divePoint - rb.position).normalized;
                         rb.AddForce(direction * flyForce);
                     }
                     else
+                    {
+                        Debug.Log("Can Dive!");
                         ChangeState(state.dive);
+                    }
 
                 }
                 else if (currentState == state.dive)
                 {
                     //se ainda nao completou o dive, continuar aplicando força:
-                    if (rb.position.y < divePoint.y)
+                    if (rb.position.y < divePoint.y + canDiveDistance +  0.01f)
                         rb.AddForce(Vector2.up * diveForce);
                     else
                     {
@@ -193,43 +218,51 @@ public class CrawAI : MonoBehaviour
 
     }
 
-    IEnumerator Flee()
-    {
-        Debug.Log("Inicio do Flee");
-        ChangeState(state.flee);
-        yield return new WaitForSeconds(fleeTime);
-        Debug.Log("Final do Flee. Mudando Estado para fly");
-        ChangeState(state.fly);
-    }
+ 
 
     bool findTarget()
     {
         // find plants
         plants = GameObject.FindGameObjectsWithTag("Planta");
-        if (plants == null)
+        Debug.Log("Array Plantas: "); 
+        foreach(GameObject plant in plants)
+            Debug.Log(plant.name); 
+
+        if (plants.Length == 0)
         {
-            FlyAway();
+            Debug.Log("No plants found. Fly away");
+            StartCoroutine(FlyAway());
             return false;
         }
         else
         {
             // find target plant
             randomIndex = Random.Range(0, plants.Length);
+            Debug.Log("Plants Lenght: " + plants.Length);
+            Debug.Log("randomIndex: " + randomIndex);
+
             targetPlant = plants[randomIndex];
+            Debug.Log("targetPlant: " + targetPlant);
+
             diveSide = (side)Random.Range(0, 2);
             divePoint = targetPlant.GetComponent<Rigidbody2D>().position + new Vector2(diveRange * ((int)diveSide * 2 - 1), diveHeight);
+            Debug.DrawRay(divePoint, Vector2.down*0.02f, Color.red, 15f);
+
             if (diveSide == side.left)
                 firstApproachAbsPoint = divePoint - firstApproachRelPoint;
             else
                 firstApproachAbsPoint = divePoint + firstApproachRelPoint;
+            Debug.DrawRay(firstApproachAbsPoint, Vector2.down*0.02f, Color.white, 15f);
             return true;
         }
     }
 
     //Dar dano na planta
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Planta" && currentState == state.dive) ;
+        if (other.gameObject.tag == "Planta" && currentState == state.dive)
+            Debug.Log("Deu dano na planta");
         //Dar dano na planta
     }
 

@@ -26,6 +26,7 @@ public class CheckIfPlayerIsHere : MonoBehaviour
     /// <param name="other">The other Collider2D involved in this collision.</param>
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("FearRadius iniciou colisão com player");
         if(other.gameObject.tag == "Player")
             playerIsHere = true;
     }
@@ -36,8 +37,9 @@ public class CheckIfPlayerIsHere : MonoBehaviour
     /// <param name="other">The other Collider2D involved in this collision.</param>
     private void OnTriggerExit2D(Collider2D other)
     {
-      if(other.gameObject.tag == "Player")
-            playerIsHere = false;
+        Debug.Log("FearRadius finalizou colisão com player");
+        if(other.gameObject.tag == "Player")
+                playerIsHere = false;
     }
 
 
