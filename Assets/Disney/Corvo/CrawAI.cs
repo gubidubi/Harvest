@@ -10,6 +10,7 @@ public class CrawAI : MonoBehaviour
     SpriteRenderer sprite;
     Rigidbody2D fearRadius;
     GameObject targetPlant;
+    Rigidbody2D player;
     GameObject[] plants;
     CheckIfPlayerIsHere playerCheck;
     int randomIndex;
@@ -22,6 +23,11 @@ public class CrawAI : MonoBehaviour
     public float flyLinearDrag;
     public float fleeForce;
     public float fleeTime;
+    [Header("Convenções de Distâncias")]
+    public float slowDistance;
+    public float changeTargetDistance;
+    public float canDiveDistance;
+
     [Header("Mecânica de Dive")]
     public Vector2 diveVelocity;
     public float diveTime;
@@ -30,6 +36,7 @@ public class CrawAI : MonoBehaviour
     [Header("Apenas Visualização:")]
     [SerializeField] side diveSide;
     [SerializeField] float diveRange;
+    [SerializeField] float diveForce;
 
 
     [Header("Ponto de Primeira Aproximação (relativo ao Dive Point)")]
@@ -37,7 +44,12 @@ public class CrawAI : MonoBehaviour
     public Vector2 firstApproachRelPoint;
     private Vector2 firstApproachAbsPoint;
     private Vector2 divePoint;
+
+    // Algumas variaveis auxiliares:
     private float currentForce;
+    private Vector2 direction;
+    private float distance;
+
 
     private enum side
     {
@@ -47,11 +59,10 @@ public class CrawAI : MonoBehaviour
     // State Machine:
     private enum state
     {
-        fly,
-        flyToDive, dive, flee
+        fly, flyToDive, dive, flee, FlyAway
     }
     state currentState;
-    string[] strStates = { "Enemy_Fly", "Enemy_Fly", "Enemy_Dive", "Enemy_Flee" }; //vetor de string states
+    string[] strStates = { "Enemy_Fly", "Enemy_Fly", "Enemy_Dive", "Enemy_Flee", "Enemy_Fly" }; //vetor de string states
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +71,7 @@ public class CrawAI : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
         sprite = gameObject.GetComponent<SpriteRenderer>();
+        player = GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>();
         fearRadius = gameObject.GetComponentInChildren<Rigidbody2D>();
         playerCheck = gameObject.GetComponentInChildren<CheckIfPlayerIsHere>();
 
@@ -67,7 +79,10 @@ public class CrawAI : MonoBehaviour
         currentState = state.fly;
         animator.Play(strStates[(int)state.fly]);
 
-        plants = GameObject.FindGameObjectsWithTag("Planta");
+        //Setando algumas "constantes"
+        diveRange = (diveVelocity.x * diveTime) / 2;
+        diveForce = 2 * diveHeight * rb.mass / (diveTime * diveTime); //Cinemática para uma parábola perfeitinha
+
         findTarget();
     }
 
@@ -89,14 +104,17 @@ public class CrawAI : MonoBehaviour
         if (newState == currentState)
             return;
         //if (for diferente de null blablabla) (no nosso nao precisa)
-        animator.Play(strStates[(int)state.dive]);
+        animator.Play(strStates[(int)newState]);
 
         currentState = newState;
 
         if (newState == state.fly || newState == state.flee || newState == state.flyToDive)
             rb.drag = flyLinearDrag;
-        else if(newState == state.dive)
+        else if (newState == state.dive)
+        {
             rb.drag = diveLinearDrag;
+            rb.velocity = new Vector2((-1 * ((int)diveSide * 2 - 1)) * diveVelocity.x, -1 * diveVelocity.y);
+        }
     }
 
     // Verifica se determinada animação rodou (só serve para animações de uso único, então talvez não seja necessário)
@@ -119,42 +137,114 @@ public class CrawAI : MonoBehaviour
 
     void MoveEnemy()
     {
-        //Durante o flee chamará uma Coroutine, então ela não será alterada pela máquina de estados
-        if (currentState != state.flee)
+        if (currentState == state.flee || currentState == state.FlyAway)
         {
+            direction = -1*(player.position - rb.position).normalized;
+            rb.AddForce(direction * fleeForce);
+        }
+        else
+        {
+            //Se, na realidade o player está ali, deve corrigir seu estado e iniciar a Co-rotina de fuga
             if (playerCheck.playerIsHere)
-                ChangeState(state.flee);
+                Flee();
             else
             {
-                
+                if (currentState == state.fly)
+                {
+                    distance = (firstApproachAbsPoint - rb.position).magnitude;
+                    if (distance > slowDistance)
+                        currentForce = flyForce;
+                    else if (distance > changeTargetDistance)
+                        currentForce = flyForce / 2;
+                    else
+                        ChangeState(state.flyToDive);
+
+                    //se não trocou de estado, realizar o resto:
+                    if (currentState == state.fly)
+                    {
+                        direction = (firstApproachAbsPoint - rb.position).normalized;
+                        rb.AddForce(direction * currentForce);
+                    }
+                }
+                else if (currentState == state.flyToDive)
+                {
+                    if (distance > canDiveDistance)
+                    {
+                        direction = (divePoint - rb.position).normalized;
+                        rb.AddForce(direction * flyForce);
+                    }
+                    else
+                        ChangeState(state.dive);
+
+                }
+                else if (currentState == state.dive)
+                {
+                    //se ainda nao completou o dive, continuar aplicando força:
+                    if (rb.position.y < divePoint.y)
+                        rb.AddForce(Vector2.up * diveForce);
+                    else
+                    {
+                        findTarget();
+                        ChangeState(state.fly);
+                    }
+                }
             }
         }
 
     }
 
-    /// <summary>
-    /// Sent each frame where another object is within a trigger collider
-    /// attached to this object (2D physics only).
-    /// </summary>
-    /// <param name="other">The other Collider2D involved in this collision.</param>
-    private void OnTriggerStay2D(Collider2D other)
+    IEnumerator Flee()
     {
-
+        Debug.Log("Inicio do Flee");
+        ChangeState(state.flee);
+        yield return new WaitForSeconds(fleeTime);
+        Debug.Log("Final do Flee. Mudando Estado para fly");
+        ChangeState(state.fly);
     }
 
-    void findTarget()
+    bool findTarget()
     {
-        // find target plant
-        
-        randomIndex = Random.Range(0, plants.Length);
-        targetPlant = plants[randomIndex];
-        diveRange = (diveVelocity.x * diveTime) / 2;
-        diveSide = (side)Random.Range(0, 2);
-        divePoint = new Vector2(diveRange * ((int)diveSide * 2 - 1), diveHeight);
-        if (diveSide == side.left)
-            firstApproachAbsPoint = divePoint - firstApproachRelPoint;
+        // find plants
+        plants = GameObject.FindGameObjectsWithTag("Planta");
+        if (plants == null)
+        {
+            FlyAway();
+            return false;
+        }
         else
-            firstApproachAbsPoint = divePoint + firstApproachRelPoint;
+        {
+            // find target plant
+            randomIndex = Random.Range(0, plants.Length);
+            targetPlant = plants[randomIndex];
+            diveSide = (side)Random.Range(0, 2);
+            divePoint = targetPlant.GetComponent<Rigidbody2D>().position + new Vector2(diveRange * ((int)diveSide * 2 - 1), diveHeight);
+            if (diveSide == side.left)
+                firstApproachAbsPoint = divePoint - firstApproachRelPoint;
+            else
+                firstApproachAbsPoint = divePoint + firstApproachRelPoint;
+            return true;
+        }
     }
 
+    //Dar dano na planta
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Planta" && currentState == state.dive) ;
+        //Dar dano na planta
+    }
+
+    IEnumerator FlyAway()
+    {
+        currentState = state.FlyAway;
+        for (int i = 0; i < 4; i++)
+        {
+            yield return new WaitForSeconds(2f);
+            if(findTarget())
+            {
+                currentState = state.fly;    
+                yield break;
+            }
+        }
+        Destroy(gameObject); //sumiu no horizonte.
+    }
 }
