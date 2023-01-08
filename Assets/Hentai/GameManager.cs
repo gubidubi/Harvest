@@ -12,10 +12,13 @@ public class GameManager : MonoBehaviour
     public GameObject mainMenu;
     public GameObject pauseMenu;
     public GameObject gameOverMenu;
+    
+    private void Awake() {
+        instance = this;
+    }
 
     private void Start()
     {
-        instance = this;
         isGameActive = false;
         UpdateTimescale();
     }

@@ -579,7 +579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quantity: 999
-  destroyOnEmptyStack: 1
+  destroyOnEmptyStack: 0
 --- !u!1 &899214471436202685
 GameObject:
   m_ObjectHideFlags: 0
