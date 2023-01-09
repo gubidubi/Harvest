@@ -266,7 +266,7 @@ public class CrawAI : MonoBehaviour
     {
         if (currentState == state.dive && other.gameObject.tag == "Planta" && currentState == state.dive)
         {
-            other.GetComponent<Health>().AddHealth(diveDamange);
+            other.GetComponent<Health>().AddHealth(-diveDamange);
         }
         //Dar dano na planta
     }
