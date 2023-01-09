@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -13,7 +14,8 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject gameOverMenu;
     public Grid grid;
-    public Dictionary<Vector3Int, GameObject> gridPositions = new Dictionary<Vector3Int, GameObject>();
+    public Tilemap tilemap;
+    public Dictionary<Vector3Int, GameObject> plantSpots = new Dictionary<Vector3Int, GameObject>();
     
     private void Awake() {
         instance = this;

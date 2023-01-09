@@ -31,20 +31,27 @@ public class Water : MonoBehaviour
         if (water <= 0)
         {
             // Die
-            Destroy(gameObject);
+            Death();
         }
     }
 
+    public void SetWater(float value)
+    {
+        water = value;
+        AddWater(0);
+    }
+
     // Empty the gridCell
-    private void OnDestroy() {
+    private void Death() {
+        Destroy(gameObject);
         if (GameManager.instance == null || GameManager.instance.grid == null)
         {
             return;
         }
         Vector3Int plantCell = GameManager.instance.grid.WorldToCell(transform.position);
-        if (GameManager.instance.gridPositions.ContainsKey(plantCell))
+        if (GameManager.instance.plantSpots.ContainsKey(plantCell))
         {
-            GameManager.instance.gridPositions.Remove(plantCell);
+            GameManager.instance.plantSpots.Remove(plantCell);
         }
         else
         {

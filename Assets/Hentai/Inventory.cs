@@ -66,11 +66,11 @@ public class Inventory : MonoBehaviour
 
     bool CanPlant(Vector3Int seedCell)
     {
-        if (seeds[selectedIndex].GetComponent<ItemStack>().quantity != 0 && !GameManager.instance.gridPositions.ContainsKey(seedCell))
+        if (seeds[selectedIndex].GetComponent<ItemStack>().quantity != 0 && !GameManager.instance.plantSpots.ContainsKey(seedCell))
         {
             Vector3 seedPosition = GameManager.instance.grid.GetCellCenterWorld(seedCell);
             float distance = Vector3.Distance(seedPosition, player.transform.position);
-            if (distance < rangePlantSeed)
+            if (distance < rangePlantSeed && GameManager.instance.tilemap.HasTile(seedCell))
             {
                 return true;
             }
@@ -83,7 +83,7 @@ public class Inventory : MonoBehaviour
         ItemStack seedStack = seeds[selectedIndex].GetComponent<ItemStack>();
         Vector3 seedPosition = GameManager.instance.grid.GetCellCenterWorld(seedCell);
         GameObject placedSeed = Instantiate(seedStack.prefab, seedPosition, Quaternion.identity);
-        GameManager.instance.gridPositions.Add(seedCell, placedSeed);
+        GameManager.instance.plantSpots.Add(seedCell, placedSeed);
         seedStack.ChangeItemQuantity(-1);
     }
 }

@@ -24,8 +24,11 @@ public class SeedTransformation : MonoBehaviour
 
     public void seedTransformation()
     {
+        GameObject plant = Instantiate(prefab, transform.position, Quaternion.identity);
+        float seedWater = gameObject.GetComponent<Water>().water;
+        plant.GetComponent<Water>().SetWater(seedWater);
+        var seedCell = GameManager.instance.grid.WorldToCell(gameObject.transform.position);
+        GameManager.instance.plantSpots[seedCell] = plant;
         Destroy(gameObject);
-        Instantiate(prefab, transform.position, Quaternion.identity);
     }
-
 }

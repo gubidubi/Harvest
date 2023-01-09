@@ -10,7 +10,7 @@ public class LookAtEnemies : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public GameObject lookAtEnemy() // find nearest enemy
@@ -20,24 +20,24 @@ public class LookAtEnemies : MonoBehaviour
         GameObject nearestEnemy = null;
 
         arrayEnemies = GameObject.FindGameObjectsWithTag("Enemy");
-                arrayEnemies = GameObject.FindGameObjectsWithTag("Enemy");
-        for(int i = 0 ; i<3 && arrayEnemies.Length != 0; i++)
+        arrayEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        for (int i = 0; i < 3 && arrayEnemies.Length != 0; i++)
         {
-            if(arrayEnemies.Length == 0)
+            if (arrayEnemies.Length == 0)
                 arrayEnemies = GameObject.FindGameObjectsWithTag("Enemy");
         }
-        
+
         for (int i = 0; i < arrayEnemies.Length; i++)
         {
             // Debug.Log("arrayEnemies: " + arrayEnemies[i]);
             distance = Vector2.Distance(gameObject.transform.position, arrayEnemies[i].transform.position);
-            if (i == 0) 
+            if (i == 0)
                 shorterDistance = distance; // first time
-            else if (distance <= shorterDistance) 
-                {
-                    shorterDistance = distance;
-                    nearestEnemy = arrayEnemies[i];
-                } 
+            else if (distance <= shorterDistance)
+            {
+                shorterDistance = distance;
+                nearestEnemy = arrayEnemies[i];
+            }
         }
 
         return nearestEnemy;
