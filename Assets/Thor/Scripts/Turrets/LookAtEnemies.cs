@@ -13,13 +13,19 @@ public class LookAtEnemies : MonoBehaviour
         
     }
 
-    public GameObject  lookAtEnemy() // find nearest enemy
+    public GameObject lookAtEnemy() // find nearest enemy
     {
         float distance;
         float shorterDistance = 0;
         GameObject nearestEnemy = null;
 
         arrayEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+                arrayEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        for(int i = 0 ; i<3 && arrayEnemies.Length != 0; i++)
+        {
+            if(arrayEnemies.Length == 0)
+                arrayEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        }
         
         for (int i = 0; i < arrayEnemies.Length; i++)
         {

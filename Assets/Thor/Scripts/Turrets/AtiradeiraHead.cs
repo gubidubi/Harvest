@@ -11,14 +11,12 @@ public class AtiradeiraHead : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(FindEnemy());
     }
 
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(FindEnemy());
-        Debug.Log("nearestEnemy: " + nearestEnemy);
         if (nearestEnemy != null)
         {
             float angle = Mathf.Atan2(nearestEnemy.transform.position.y - gameObject.transform.position.y, nearestEnemy.transform.position.x - gameObject.transform.position.x) * Mathf.Rad2Deg;
@@ -26,6 +24,7 @@ public class AtiradeiraHead : MonoBehaviour
             gameObject.transform.rotation = Quaternion.Euler(0, 0, angle);
             // Debug.Log("rotation: " + gameObject.transform.rotation);
         }
+        else gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     private IEnumerator FindEnemy()
@@ -33,9 +32,9 @@ public class AtiradeiraHead : MonoBehaviour
         while (true)
         {
             nearestEnemy = lookAt.lookAtEnemy();
-            yield return new WaitForSeconds(1);
+            Debug.Log("new nearestEnemy: " + nearestEnemy);
+            yield return new WaitForSeconds(5);
         }
-        
-    }
 
+    }
 }
