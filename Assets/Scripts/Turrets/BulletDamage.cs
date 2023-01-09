@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletDamage : MonoBehaviour
 {
+    public AudioClip clip;
     [HideInInspector] public float damage;
     private bool arealdyCollided;
 
@@ -14,6 +15,7 @@ public class BulletDamage : MonoBehaviour
             arealdyCollided = true;
             Destroy(gameObject);
             // sound effect and particles
+            AudioSource.PlayClipAtPoint(clip, transform.position, GameManager.instance.soundVolume);
         }
     }
 }

@@ -22,7 +22,7 @@ public class DayNightHandler : MonoBehaviour
 
     //stands for current Hour Of the Day
     [SerializeField]
-    private HourOfDay currentHOD = HourOfDay.Day;
+    private HourOfDay currentHOD = HourOfDay.Night;
 
     //a float representing the delay betweenHordes
     [SerializeField]
@@ -41,7 +41,7 @@ public class DayNightHandler : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         gm = GameManager.instance;
-        remainingDayTime = dayDuration;
+        SetNight();
     }
 
     void Update()

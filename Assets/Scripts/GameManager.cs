@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         isGameActive = true;
         mainMenu.SetActive(false);
         UpdateTimeScale();
-        Camera.main.GetComponent<SetSound>().StartSound();
+        Camera.main.GetComponent<SetSound>().StartSound(29.5f);
     }
 
     void Update()

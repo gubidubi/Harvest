@@ -23,10 +23,11 @@ public class SetSound : MonoBehaviour
         audioSource.volume = GameManager.instance.soundVolume * volumeMultiplier;
     }
 
-    public void StartSound()
+    public void StartSound(float time = 0)
     {
         ChangeVolume();
         audioSource.Stop();
         audioSource.PlayScheduled(AudioSettings.dspTime + 0.1);
+        audioSource.time = time;
     }
 }
