@@ -12,6 +12,7 @@ public class CrawAI : MonoBehaviour
     GameObject targetPlant;
     Rigidbody2D player;
     GameObject[] plants;
+    Health plantHealth;
     CheckIfPlayerIsHere playerCheck;
     int randomIndex;
 
@@ -263,8 +264,10 @@ public class CrawAI : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Planta" && currentState == state.dive)
-            Debug.Log("Deu dano na planta");
+        if (currentState == state.dive && other.gameObject.tag == "Planta" && currentState == state.dive)
+        {
+            other.GetComponent<Health>().AddHealth(diveDamange);
+        }
         //Dar dano na planta
     }
 
