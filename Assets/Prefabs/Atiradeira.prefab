@@ -743,7 +743,9 @@ MonoBehaviour:
   beingHandled: 0
   firePoint: {fileID: 8534930615335132207}
   bulletPrefab: {fileID: 4805242748538764465, guid: 75e1d2d1646f2f041a886ba76aab38a9, type: 3}
-  force: 20
+  force: 40
+  damage: 20
+  bulletScale: {x: 1, y: 1, z: 1}
   delay: 0
   numBullets: 0
   turret: 1
@@ -930,6 +932,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookAt: {fileID: 1596750690677116299}
+  head: {fileID: 872723190261835890}
+  nearestTarget: {fileID: 0}
 --- !u!114 &1596750690677116299
 MonoBehaviour:
   m_ObjectHideFlags: 0

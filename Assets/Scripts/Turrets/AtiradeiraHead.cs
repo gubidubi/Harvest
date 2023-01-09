@@ -6,23 +6,35 @@ public class AtiradeiraHead : MonoBehaviour
 {
 
     public LookAtEnemies lookAt;
-    private GameObject nearestEnemy = null;
+    public SpriteRenderer head;
+    [SerializeField] GameObject nearestTarget = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(FindEnemy());
+        if (nearestTarget == null)
+        {
+            StartCoroutine(FindEnemy());
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (nearestEnemy != null)
+        if (nearestTarget != null)
         {
-            float angle = Mathf.Atan2(nearestEnemy.transform.position.y - gameObject.transform.position.y, nearestEnemy.transform.position.x - gameObject.transform.position.x) * Mathf.Rad2Deg;
+            float angle = Mathf.Atan2(nearestTarget.transform.position.y - gameObject.transform.position.y, nearestTarget.transform.position.x - gameObject.transform.position.x) * Mathf.Rad2Deg;
             // Debug.Log("angle: " + angle);
             gameObject.transform.rotation = Quaternion.Euler(0, 0, angle);
             // Debug.Log("rotation: " + gameObject.transform.rotation);
+            if (Mathf.Abs(angle) > 90)
+            {
+                head.flipY = true;
+            }
+            else
+            {
+                head.flipY = false;
+            }
         }
         else gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
@@ -31,9 +43,9 @@ public class AtiradeiraHead : MonoBehaviour
     {
         while (true)
         {
-            nearestEnemy = lookAt.lookAtEnemy();
-            Debug.Log("new nearestEnemy: " + nearestEnemy);
-            yield return new WaitForSeconds(1);
+            nearestTarget = lookAt.lookAtEnemy();
+            Debug.Log("new nearestEnemy: " + nearestTarget);
+            yield return new WaitForSeconds(0.1f);
         }
 
     }

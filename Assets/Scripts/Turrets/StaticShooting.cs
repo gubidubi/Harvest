@@ -8,6 +8,8 @@ public class StaticShooting : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
     public float force = 20f;
+    public float damage;
+    public Vector3 bulletScale = Vector3.one;
     [HideInInspector]public float delay; //tempo entre os disparos
     public int numBullets;
 
@@ -39,6 +41,8 @@ public class StaticShooting : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         bullet.transform.SetParent(gameObject.transform.parent);
+        bullet.transform.localScale = bulletScale;
+        bullet.GetComponent<BulletDamage>().damage = damage;
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.right * force, ForceMode2D.Impulse);
     }
