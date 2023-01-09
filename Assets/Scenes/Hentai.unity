@@ -192,10 +192,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 737798350, guid: 290b0f7b1647fb44fb1ca2199c82f618, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1391988204, guid: 290b0f7b1647fb44fb1ca2199c82f618, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -252,18 +248,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6577916998682925358, guid: 290b0f7b1647fb44fb1ca2199c82f618, type: 3}
-      propertyPath: m_Size.x
-      value: 0.90625
-      objectReference: {fileID: 0}
-    - target: {fileID: 6577916998682925358, guid: 290b0f7b1647fb44fb1ca2199c82f618, type: 3}
-      propertyPath: m_Size.y
-      value: 0.9375
-      objectReference: {fileID: 0}
-    - target: {fileID: 6577916998682925358, guid: 290b0f7b1647fb44fb1ca2199c82f618, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.46875
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 290b0f7b1647fb44fb1ca2199c82f618, type: 3}
 --- !u!1001 &1291723450
@@ -281,22 +265,6 @@ PrefabInstance:
       propertyPath: music
       value: 
       objectReference: {fileID: 2101004835}
-    - target: {fileID: 396268830, guid: d970146780f3bd641acbd954109497fb, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1843672010, guid: d970146780f3bd641acbd954109497fb, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 458038127646252108, guid: d970146780f3bd641acbd954109497fb, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 458038127646252108, guid: d970146780f3bd641acbd954109497fb, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 899214471202425725, guid: d970146780f3bd641acbd954109497fb, type: 3}
       propertyPath: m_Name
       value: Game Manager
@@ -343,22 +311,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 899214471202425727, guid: d970146780f3bd641acbd954109497fb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 899214471358872849, guid: d970146780f3bd641acbd954109497fb, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 899214471358872849, guid: d970146780f3bd641acbd954109497fb, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 899214471358872849, guid: d970146780f3bd641acbd954109497fb, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 899214471358872849, guid: d970146780f3bd641acbd954109497fb, type: 3}
-      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

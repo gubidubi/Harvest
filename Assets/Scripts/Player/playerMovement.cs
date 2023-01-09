@@ -74,8 +74,6 @@ public class playerMovement : MonoBehaviour
 
         moveDirection = new Vector2(moveX, moveY).normalized;
 
-        animator.SetFloat("Speed", moveDirection.magnitude);
-
         if (moveX != 0)
         {
             if (moveX > 0)
