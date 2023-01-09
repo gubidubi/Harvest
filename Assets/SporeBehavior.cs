@@ -15,6 +15,7 @@ public class SporeBehavior : MonoBehaviour
     public float sporeRange;
     public float targetError;
     public float angularVelocity;
+    public float sporeDamage;
 
     //atributos privados
     private Vector2 target; 
@@ -57,8 +58,8 @@ public class SporeBehavior : MonoBehaviour
     {
         if(other.tag == "Player")
             {
-                //Dar Dano.
-                //Animação
+                Debug.Log("Atingiu o Player");
+                other.GetComponent<Health>().AddHealth(-1*sporeDamage);
                 Destroy(gameObject);
             }
     }

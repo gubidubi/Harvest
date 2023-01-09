@@ -74,6 +74,7 @@ public class SporangedAI : MonoBehaviour
         // start infinite Coroutines:
         StartCoroutine(PickADist());
         StartCoroutine(PickASide());
+        Debug.Log("Terminou o start");
     }
 
     // Update is called once per frame
