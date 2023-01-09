@@ -24,7 +24,7 @@ public class Inventory : MonoBehaviour
     private void Update()
     {
         UpdateSelectedPosition();
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.G))
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int seedCell = GameManager.instance.grid.WorldToCell(mousePos);

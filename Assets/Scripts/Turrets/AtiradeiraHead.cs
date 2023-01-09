@@ -44,6 +44,7 @@ public class AtiradeiraHead : MonoBehaviour
         while (true)
         {
             nearestTarget = lookAt.lookAtEnemy();
+            Debug.Log("new nearestEnemy: " + nearestTarget);
             yield return new WaitForSeconds(0.1f);
         }
 

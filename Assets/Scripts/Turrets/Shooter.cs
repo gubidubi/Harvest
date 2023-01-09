@@ -29,6 +29,7 @@ public class Shooter : StaticShooting
     {
         if(Input.GetKeyDown(KeyCode.E) && numBullets > 0)
         {
+            numBullets--;
             Shoot();
         }
     }

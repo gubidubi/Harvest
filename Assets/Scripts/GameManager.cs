@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
         isGameActive = false;
         UpdateTimeScale();
         volumeSlider.value = soundVolume;
+        Camera.main.GetComponent<SetSound>().StartSound();
     }
 
     public void StartGame()
@@ -39,7 +40,6 @@ public class GameManager : MonoBehaviour
         isGameActive = true;
         mainMenu.SetActive(false);
         UpdateTimeScale();
-        Camera.main.GetComponent<SetSound>().StartSound();
     }
 
     void Update()
