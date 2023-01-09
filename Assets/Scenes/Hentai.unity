@@ -148,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7051685043662152763, guid: 4403bcc13feaa1243ade1ede735a8f24, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 7051685043662152763, guid: 4403bcc13feaa1243ade1ede735a8f24, type: 3}
       propertyPath: m_LocalRotation.w
@@ -265,10 +265,6 @@ PrefabInstance:
       propertyPath: music
       value: 
       objectReference: {fileID: 2101004835}
-    - target: {fileID: 181758625, guid: d970146780f3bd641acbd954109497fb, type: 3}
-      propertyPath: seeds
-      value: 
-      objectReference: {fileID: 2111536244}
     - target: {fileID: 396268830, guid: d970146780f3bd641acbd954109497fb, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -367,17 +363,6 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 7051685043662152760, guid: 4403bcc13feaa1243ade1ede735a8f24, type: 3}
   m_PrefabInstance: {fileID: 499282}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2111536244 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 899214471358872848, guid: d970146780f3bd641acbd954109497fb, type: 3}
-  m_PrefabInstance: {fileID: 1291723450}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14103ceb2aaceb0488701d76c5a677e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7571623693186139626
 PrefabInstance:
   m_ObjectHideFlags: 0

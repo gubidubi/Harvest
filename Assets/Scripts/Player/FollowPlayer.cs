@@ -21,9 +21,9 @@ public class FollowPlayer : MonoBehaviour
         {
             return;
         }
-        Vector3 playerPos = new Vector3(player.transform.position.x, player.transform.position.y, -10f);
+        Vector3 playerPos = new Vector3(player.transform.position.x, player.transform.position.y, -3f);
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = -10f;
+        mousePos.z = -3f;
 
         Vector3 finalPos = Vector3.Lerp(playerPos, mousePos, 0.2f);
 

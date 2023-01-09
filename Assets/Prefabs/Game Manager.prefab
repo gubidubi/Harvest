@@ -400,6 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3880dade88534144287975f66d85cc7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seeds: {fileID: 899214471358872848}
   enemyPrefabs:
   - {fileID: 2673240273829262027, guid: 38bace55a2026334084fa47409183e08, type: 3}
   - {fileID: 3213580521424900618, guid: f360788d47513064588a6eaf7e5ba131, type: 3}
