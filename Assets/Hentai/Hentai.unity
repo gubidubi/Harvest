@@ -193,7 +193,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 127747753, guid: 9376e15c3e9571e4bbb4340819c727fd, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2673240273829262018, guid: 9376e15c3e9571e4bbb4340819c727fd, type: 3}
       propertyPath: m_RootOrder
@@ -243,6 +243,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fungiado (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2673240273829262027, guid: 9376e15c3e9571e4bbb4340819c727fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9376e15c3e9571e4bbb4340819c727fd, type: 3}
 --- !u!1001 &468957787
@@ -254,7 +258,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 127747753, guid: 9376e15c3e9571e4bbb4340819c727fd, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2673240273829262018, guid: 9376e15c3e9571e4bbb4340819c727fd, type: 3}
       propertyPath: m_RootOrder
@@ -304,6 +308,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fungiado (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 2673240273829262027, guid: 9376e15c3e9571e4bbb4340819c727fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9376e15c3e9571e4bbb4340819c727fd, type: 3}
 --- !u!1001 &600288363
@@ -315,7 +323,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 127747753, guid: 9376e15c3e9571e4bbb4340819c727fd, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2673240273829262018, guid: 9376e15c3e9571e4bbb4340819c727fd, type: 3}
       propertyPath: m_RootOrder
@@ -364,6 +372,10 @@ PrefabInstance:
     - target: {fileID: 2673240273829262027, guid: 9376e15c3e9571e4bbb4340819c727fd, type: 3}
       propertyPath: m_Name
       value: Fungiado (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673240273829262027, guid: 9376e15c3e9571e4bbb4340819c727fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9376e15c3e9571e4bbb4340819c727fd, type: 3}
@@ -500,6 +512,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 458038127646252108, guid: d970146780f3bd641acbd954109497fb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458038127646252108, guid: d970146780f3bd641acbd954109497fb, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 899214471202425725, guid: d970146780f3bd641acbd954109497fb, type: 3}
       propertyPath: m_Name
       value: Game Manager
@@ -546,6 +566,54 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 899214471202425727, guid: d970146780f3bd641acbd954109497fb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 899214471358872849, guid: d970146780f3bd641acbd954109497fb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 899214471358872849, guid: d970146780f3bd641acbd954109497fb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 899214471358872849, guid: d970146780f3bd641acbd954109497fb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 899214471358872849, guid: d970146780f3bd641acbd954109497fb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812637213791968220, guid: d970146780f3bd641acbd954109497fb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812637213791968220, guid: d970146780f3bd641acbd954109497fb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812637213791968220, guid: d970146780f3bd641acbd954109497fb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812637213791968220, guid: d970146780f3bd641acbd954109497fb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4366098944003125684, guid: d970146780f3bd641acbd954109497fb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4366098944003125684, guid: d970146780f3bd641acbd954109497fb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4366098944003125684, guid: d970146780f3bd641acbd954109497fb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4366098944003125684, guid: d970146780f3bd641acbd954109497fb, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -624,7 +692,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 127747753, guid: 9376e15c3e9571e4bbb4340819c727fd, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2673240273829262018, guid: 9376e15c3e9571e4bbb4340819c727fd, type: 3}
       propertyPath: m_RootOrder
@@ -674,6 +742,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fungiado (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2673240273829262027, guid: 9376e15c3e9571e4bbb4340819c727fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9376e15c3e9571e4bbb4340819c727fd, type: 3}
 --- !u!1001 &1528290361
@@ -685,7 +757,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 127747753, guid: 9376e15c3e9571e4bbb4340819c727fd, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2673240273829262018, guid: 9376e15c3e9571e4bbb4340819c727fd, type: 3}
       propertyPath: m_RootOrder
@@ -734,6 +806,10 @@ PrefabInstance:
     - target: {fileID: 2673240273829262027, guid: 9376e15c3e9571e4bbb4340819c727fd, type: 3}
       propertyPath: m_Name
       value: Fungiado (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673240273829262027, guid: 9376e15c3e9571e4bbb4340819c727fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9376e15c3e9571e4bbb4340819c727fd, type: 3}
