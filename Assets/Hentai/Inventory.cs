@@ -27,10 +27,10 @@ public class Inventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.G))
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 seedPosition = TileCenter(mousePos);
-            if (CanPlant(seedPosition))
+            Vector3Int seedCell = GameManager.instance.grid.WorldToCell(mousePos);
+            if (CanPlant(seedCell))
             {
-                Plant(seedPosition);
+                Plant(seedCell);
             }
             else
             {
@@ -64,26 +64,26 @@ public class Inventory : MonoBehaviour
         return a;
     }
 
-    bool CanPlant(Vector3 seedPosition)
+    bool CanPlant(Vector3Int seedCell)
     {
-        if (seeds[selectedIndex].GetComponent<ItemStack>().quantity != 0)
+        if (seeds[selectedIndex].GetComponent<ItemStack>().quantity != 0 && !GameManager.instance.gridPositions.ContainsKey(seedCell))
         {
+            Vector3 seedPosition = GameManager.instance.grid.GetCellCenterWorld(seedCell);
             float distance = Vector3.Distance(seedPosition, player.transform.position);
-            return (distance < rangePlantSeed);
+            if (distance < rangePlantSeed)
+            {
+                return true;
+            }
         }
         return false;
     }
 
-    Vector3 TileCenter(Vector3 pos)
+    void Plant(Vector3Int seedCell)
     {
-        float x = Mathf.Round(pos.x + 0.5f) - 0.5f;
-        float y = Mathf.Round(pos.y + 0.5f) - 0.5f;
-        return new Vector3(x, y, 0);
-    }
-
-    void Plant(Vector3 seedPosition)
-    {
-        seeds[selectedIndex].GetComponent<ItemStack>().ChangeItemQuantity(-1);
-        Instantiate(test, seedPosition, Quaternion.identity);
+        ItemStack seedStack = seeds[selectedIndex].GetComponent<ItemStack>();
+        Vector3 seedPosition = GameManager.instance.grid.GetCellCenterWorld(seedCell);
+        GameObject placedSeed = Instantiate(seedStack.prefab, seedPosition, Quaternion.identity);
+        GameManager.instance.gridPositions.Add(seedCell, placedSeed);
+        seedStack.ChangeItemQuantity(-1);
     }
 }

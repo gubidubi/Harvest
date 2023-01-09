@@ -34,4 +34,21 @@ public class Water : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    // Empty the gridCell
+    private void OnDestroy() {
+        if (GameManager.instance == null || GameManager.instance.grid == null)
+        {
+            return;
+        }
+        Vector3Int plantCell = GameManager.instance.grid.WorldToCell(transform.position);
+        if (GameManager.instance.gridPositions.ContainsKey(plantCell))
+        {
+            GameManager.instance.gridPositions.Remove(plantCell);
+        }
+        else
+        {
+            Debug.Log("Plant was off grid before being deleted!");
+        }
+    }
 }

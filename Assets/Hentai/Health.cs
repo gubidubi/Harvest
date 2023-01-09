@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     public Slider healthBar;
-    [SerializeField] float maxHealth = 100;
+    public float maxHealth = 100;
+    [SerializeField] float initialHealth = 100;
     public float regen;
 
     public float health { get; private set; }
@@ -14,7 +15,7 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        AddHealth(maxHealth);
+        AddHealth(initialHealth);
     }
 
     // Update is called once per frame

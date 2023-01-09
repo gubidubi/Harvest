@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public GameObject mainMenu;
     public GameObject pauseMenu;
     public GameObject gameOverMenu;
+    public Grid grid;
+    public Dictionary<Vector3Int, GameObject> gridPositions = new Dictionary<Vector3Int, GameObject>();
     
     private void Awake() {
         instance = this;

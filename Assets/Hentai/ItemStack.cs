@@ -5,6 +5,7 @@ using TMPro;
 
 public class ItemStack : MonoBehaviour
 {
+    public GameObject prefab;
     public TextMeshProUGUI quantityText;
     public int quantity;
     public bool destroyOnEmptyStack;
