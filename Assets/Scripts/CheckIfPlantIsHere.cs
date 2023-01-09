@@ -6,7 +6,6 @@ public class CheckIfPlantIsHere : MonoBehaviour
 {
     [SerializeField] private bool plantIsHere = false;
     Rigidbody2D rb;
-    GameObject closestPlant = null;
     // Start is called before the first frame update
     void Start()
     {
