@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30275b545a6713e449fb6ddd33f0edbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeMultiplier: 1
+  volumeMultiplier: 0.6
 --- !u!54 &3868656556270988299
 Rigidbody:
   m_ObjectHideFlags: 0

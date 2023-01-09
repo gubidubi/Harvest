@@ -18,6 +18,10 @@ public class SetSound : MonoBehaviour
         audioSource.Play();
     }
 
+    private void Update() {
+        ChangeVolume();
+    }
+
     public void ChangeVolume()
     {
         audioSource.volume = GameManager.instance.soundVolume * volumeMultiplier;

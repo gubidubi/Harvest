@@ -108,7 +108,7 @@ public class DayNightHandler : MonoBehaviour
     {
         //var text = remainingDaytimeUI.GetComponent;
         remainingDaytimeUI.GetComponent<TextMeshProUGUI>().text = ("Time to Dusk: " + ((int)remainingDayTime + 1));
-        hordeCounterUI.GetComponent<TextMeshProUGUI>().text = ("Horde: " + (hordeCounter + 1));
+        hordeCounterUI.GetComponent<TextMeshProUGUI>().text = ("Horde: " + (hordeCounter));
         if (currentHOD == HourOfDay.Day)
             debugHOD.GetComponent<TextMeshProUGUI>().text = ("Day");
         else
