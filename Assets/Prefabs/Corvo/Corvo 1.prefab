@@ -411,7 +411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 4436298942384267860}
-  maxHealth: 100
+  maxHealth: 150
   initialHealth: 100
   regen: 0
 --- !u!1 &3857406758339842062
