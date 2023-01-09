@@ -5299,7 +5299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d5d4512fd510149a1d0f24bfaecc52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionPrefab: {fileID: 8134546678592656146, guid: 8e3e653a74795f14aa39050c2061b822, type: 3}
+  explosionPrefab: {fileID: 8134546678592656146, guid: 3c628b8eeef80b841ba2fbf9e2109b76, type: 3}
   force: 10
   damage: 20
   target: {fileID: 0}
@@ -5317,4 +5317,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 290483071}
   maxHealth: 100
+  initialHealth: 100
   regen: 0
