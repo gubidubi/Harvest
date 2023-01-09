@@ -43,18 +43,22 @@ public class playerMovement : MonoBehaviour
             //proceeds to flip animation, if needed
             if (direction == 1)
             {
-                sprite.flipX = true;
-                //animator.SetBool("walk", true);
+                sprite.flipX = false;
+                animator.SetBool("walk", true);
                 //gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
                 //cam.transform.rotation *= Quaternion.Euler(0, 180, 0);
             }
             else
             {
-                sprite.flipX = false;
-                //animator.SetBool("walk", true);
+                sprite.flipX = true;
+                animator.SetBool("walk", true);
                 //gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 //cam.transform.rotation = Quaternion.Euler(0, 0, 0);
             }
+        }else
+        {
+            // Stoping walk animation
+            animator.SetBool("walk", false);
         }
     }
 
