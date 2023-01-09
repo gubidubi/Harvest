@@ -402,6 +402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 2673240273829262027, guid: 38bace55a2026334084fa47409183e08, type: 3}
+  - {fileID: 3213580521424900618, guid: f360788d47513064588a6eaf7e5ba131, type: 3}
   remainingDaytimeUI: {fileID: 723145006}
   hordeCounterUI: {fileID: 1256697097}
   debugHOD: {fileID: 486127802}
@@ -503,7 +504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &486127803
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1518,8 +1519,6 @@ MonoBehaviour:
   selection: {fileID: 782210254}
   seeds:
   - {fileID: 899214471358872862}
-  - {fileID: 0}
-  - {fileID: 0}
   test: {fileID: 2808584130853882362, guid: c5cb9af87733ba4439f2c6336bd78be7, type: 3}
   rangePlantSeed: 10
   changeScroll: 1

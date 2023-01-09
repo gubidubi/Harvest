@@ -762,7 +762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterBar: {fileID: 1682984575}
-  maxWater: 100
+  maxWater: 120
   drainRate: 1
 --- !u!114 &1953970424
 MonoBehaviour:

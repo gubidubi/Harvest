@@ -129,9 +129,10 @@ GameObject:
   - component: {fileID: 3773945981930927161}
   - component: {fileID: 2240882241718259916}
   - component: {fileID: 2240882241718259894}
+  - component: {fileID: 7868187736192525026}
   m_Layer: 0
   m_Name: Corvo 1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -306,3 +307,19 @@ MonoBehaviour:
   currentForce: 0
   direction: {x: 0, y: 0}
   distance: 0
+--- !u!114 &7868187736192525026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3213580521424900618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac118d150c24e0498f140cbb3a7b09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  maxHealth: 100
+  initialHealth: 100
+  regen: 0

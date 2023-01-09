@@ -71,6 +71,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Normal seed
       objectReference: {fileID: 0}
+    - target: {fileID: 2808584130853882363, guid: c5cb9af87733ba4439f2c6336bd78be7, type: 3}
+      propertyPath: maxWater
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808584130853882363, guid: c5cb9af87733ba4439f2c6336bd78be7, type: 3}
+      propertyPath: drainRate
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5cb9af87733ba4439f2c6336bd78be7, type: 3}
 --- !u!114 &8585862041234223672 stripped
