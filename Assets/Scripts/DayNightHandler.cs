@@ -7,7 +7,7 @@ public class DayNightHandler : MonoBehaviour
 {
     GameManager gm;
 
-
+    public ItemStack seeds;
     public GameObject[] enemyPrefabs;
     public GameObject remainingDaytimeUI;
     public GameObject hordeCounterUI;
@@ -64,7 +64,7 @@ public class DayNightHandler : MonoBehaviour
 
     private void SetDay()
     {
-        //getseeds
+        seeds.ChangeItemQuantity(hordeCounter);
         currentHOD = HourOfDay.Day;
         StopAllCoroutines();
         remainingDayTime = dayDuration;

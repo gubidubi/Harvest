@@ -71,6 +71,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Normal seed
       objectReference: {fileID: 0}
+    - target: {fileID: 2808584130853882362, guid: c5cb9af87733ba4439f2c6336bd78be7, type: 3}
+      propertyPath: m_TagString
+      value: Planta
+      objectReference: {fileID: 0}
     - target: {fileID: 2808584130853882363, guid: c5cb9af87733ba4439f2c6336bd78be7, type: 3}
       propertyPath: maxWater
       value: 120

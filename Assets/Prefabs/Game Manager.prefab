@@ -1693,7 +1693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 8585862041234223674, guid: 7808af4028f77c846ad2bd788509fe89, type: 3}
   quantityText: {fileID: 899214471456058760}
-  quantity: 999
+  quantity: 10
   destroyOnEmptyStack: 0
 --- !u!114 &425382264
 MonoBehaviour:
