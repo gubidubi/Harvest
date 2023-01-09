@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 
@@ -15,7 +16,11 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverMenu;
     public Grid grid;
     public Tilemap tilemap;
+    [SerializeField] Slider volumeSlider;
+
+    // Dont appear in Inspector
     public Dictionary<Vector3Int, GameObject> plantSpots = new Dictionary<Vector3Int, GameObject>();
+    public float soundVolume;
     
     private void Awake() {
         instance = this;
@@ -86,5 +91,10 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void UpdateVolume()
+    {
+        soundVolume = volumeSlider.value;
     }
 }

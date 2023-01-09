@@ -26,7 +26,7 @@ public class CheckIfPlantIsHere : MonoBehaviour
     {
         if(other.gameObject.tag == "Planta")
         {
-            if(plantIsHere = false)
+            if(plantIsHere == false)
 
             plantIsHere = true;
         }
