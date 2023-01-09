@@ -544,7 +544,7 @@ Animator:
   m_GameObject: {fileID: 6577916998682925347}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 269f86bfff545db4bb5050b7df587b6b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -569,7 +569,7 @@ MonoBehaviour:
   healthBar: {fileID: 972832078}
   maxHealth: 100
   initialHealth: 100
-  regen: 0.4
+  regen: 0
 --- !u!1001 &924484085
 PrefabInstance:
   m_ObjectHideFlags: 0
