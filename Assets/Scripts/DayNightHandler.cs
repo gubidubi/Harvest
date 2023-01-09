@@ -88,11 +88,11 @@ public class DayNightHandler : MonoBehaviour
     {
         while (true)
         {
-            for (int i = 0; i < 1 + hordeCounter; i += 3)
+            for (int i = 0; i < 3 + (hordeCounter + 1)/2; ++i)
             {
                 SpawnEnemy();
             }
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds((NightDuration + 1)/ (hordeCounter + 1));
         }
     }
 
