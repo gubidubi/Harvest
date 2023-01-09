@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class maxDistance : MonoBehaviour
 {
+    Vector3 initialPos;
+
+    private void Start() {
+        initialPos = transform.position;
+    }
+
     void FixedUpdate()
     {
-        if(Vector3.Distance(transform.parent.transform.position, transform.position) >= 20)
+        if(Vector3.Distance(initialPos, transform.position) >= 20)
         {
             Destroy(gameObject);
         }

@@ -401,7 +401,7 @@ GameObject:
   - component: {fileID: 782210257}
   - component: {fileID: 782210256}
   m_Layer: 5
-  m_Name: Selected seed
+  m_Name: Selection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -424,7 +424,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 32, y: -32}
   m_SizeDelta: {x: 66, y: 66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &782210258
@@ -900,7 +900,6 @@ GameObject:
   m_Component:
   - component: {fileID: 899214471202425727}
   - component: {fileID: 899214471202425724}
-  - component: {fileID: 550100403}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: GameManager
@@ -941,18 +940,6 @@ MonoBehaviour:
   mainMenu: {fileID: 899214472691816690}
   pauseMenu: {fileID: 899214472564347472}
   gameOverMenu: {fileID: 899214471975172384}
---- !u!114 &550100403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899214471202425725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 203ee1a52c90b0c4f849d8fdbcc88aa2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &899214471352075221
 GameObject:
   m_ObjectHideFlags: 0
@@ -2665,6 +2652,7 @@ GameObject:
   - component: {fileID: 458038127646252108}
   - component: {fileID: 7520750695138699797}
   - component: {fileID: 793471860462881007}
+  - component: {fileID: 1831824515}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -2736,6 +2724,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 2
+--- !u!114 &1831824515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3419362662518931925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203ee1a52c90b0c4f849d8fdbcc88aa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selection: {fileID: 782210254}
+  seeds:
+  - {fileID: 899214471358872862}
+  - {fileID: 8318121802588645063}
+  - {fileID: 1261939499943719880}
+  test: {fileID: 2808584130853882362, guid: c5cb9af87733ba4439f2c6336bd78be7, type: 3}
+  rangePlantSeed: 10
+  changeScroll: 1
+  selectedIndex: 0
 --- !u!1 &8318121802588645063
 GameObject:
   m_ObjectHideFlags: 0

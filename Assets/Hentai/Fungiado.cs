@@ -38,7 +38,6 @@ public class Fungiado : MonoBehaviour
         // If the collider hit is from an entity, damage that entity and destroy the projetile
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Damage dealt: " + damage);
             ExplosionEffect();
             Destroy(gameObject);
             other.gameObject.GetComponent<Health>().AddHealth(-damage);
@@ -51,7 +50,6 @@ public class Fungiado : MonoBehaviour
         explosion.transform.localScale = transform.localScale;
         var main = explosion.GetComponent<ParticleSystem>().main;
         main.emitterVelocity = projectileRb.velocity;
-        Debug.Log(projectileRb.velocity);
         explosion.GetComponent<ParticleSystem>().Play();
     }
 }

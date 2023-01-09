@@ -17,6 +17,10 @@ public class FollowPlayer : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        if (player == null)
+        {
+            return;
+        }
         Vector3 playerPos = new Vector3(player.transform.position.x, player.transform.position.y, -10f);
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = -10f;
