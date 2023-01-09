@@ -7,9 +7,15 @@ public class SetSound : MonoBehaviour
     public float volumeMultiplier = 1;
     private AudioSource audioSource;
 
-    private void Start() {
+    private void Awake()
+    {
         audioSource = gameObject.GetComponent<AudioSource>();
+    }
+
+    private void Start() {
         ChangeVolume();
+        audioSource.Stop();
+        audioSource.Play();
     }
 
     public void ChangeVolume()
@@ -20,6 +26,7 @@ public class SetSound : MonoBehaviour
     public void StartSound()
     {
         ChangeVolume();
-        audioSource.Play();
+        audioSource.Stop();
+        audioSource.PlayScheduled(AudioSettings.dspTime + 0.1);
     }
 }

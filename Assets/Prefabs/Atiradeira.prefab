@@ -706,7 +706,7 @@ GameObject:
   - component: {fileID: 836404194681787590}
   m_Layer: 0
   m_Name: Atiradeira
-  m_TagString: Untagged
+  m_TagString: Planta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -762,7 +762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterBar: {fileID: 1682984575}
-  maxWater: 100
+  maxWater: 120
   drainRate: 1
 --- !u!114 &1953970424
 MonoBehaviour:

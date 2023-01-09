@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1e8daf08ac658e64e9994c8645bff20b
+guid: 74fa0f30703866d458c0455a804ba571
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -127,133 +127,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: spritesheetPlayer_0
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 220
-        width: 29
-        height: 30
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cb53d578d6afc3e4bb52d998237c8443
-      internalID: 1666643820
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheetPlayer_1
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 220
-        width: 29
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4d7596b970ae00447810aa3b04b30385
-      internalID: -1232773600
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheetPlayer_3
-      rect:
-        serializedVersion: 2
-        x: 42
-        y: 189
-        width: 29
-        height: 28
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1f3d2a2d1d77f0844981314feb3ea372
-      internalID: 362008182
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheetPlayer_4
-      rect:
-        serializedVersion: 2
-        x: 79
-        y: 189
-        width: 29
-        height: 28
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 72b304fdb9a8674449418cde07bb7ac2
-      internalID: -564466412
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheetPlayer_5
-      rect:
-        serializedVersion: 2
-        x: 119
-        y: 189
-        width: 29
-        height: 28
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 73394887625250c4e82371ce2b5a4ee5
-      internalID: 1818298601
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheetPlayer_6
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 189
-        width: 29
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7c642c4b6318ea646a9d93060ccdd6cd
-      internalID: 1822115939
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -264,14 +138,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      spritesheetPlayer_5: 1818298601
-      spritesheetPlayer_4: -564466412
-      spritesheetPlayer_2: 547825455
-      spritesheetPlayer_1: -1232773600
-      spritesheetPlayer_3: 362008182
-      spritesheetPlayer_6: 1822115939
-      spritesheetPlayer_0: 1666643820
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
