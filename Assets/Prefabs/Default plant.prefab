@@ -582,6 +582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 2808584130070202860}
   maxHealth: 100
+  initialHealth: 100
   regen: 0
 --- !u!114 &2808584130853882363
 MonoBehaviour:
@@ -639,7 +640,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1260401666, guid: 06843647e4bb1a4479100b123df6c9c4, type: 3}
+  m_Sprite: {fileID: -85017004, guid: 06843647e4bb1a4479100b123df6c9c4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

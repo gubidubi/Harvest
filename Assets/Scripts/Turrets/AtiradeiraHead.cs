@@ -33,7 +33,7 @@ public class AtiradeiraHead : MonoBehaviour
         {
             nearestEnemy = lookAt.lookAtEnemy();
             Debug.Log("new nearestEnemy: " + nearestEnemy);
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(1);
         }
 
     }
