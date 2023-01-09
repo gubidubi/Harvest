@@ -9,6 +9,7 @@ public class SetSound : MonoBehaviour
 
     private void Start() {
         audioSource = gameObject.GetComponent<AudioSource>();
+        ChangeVolume();
     }
 
     public void ChangeVolume()
