@@ -28,7 +28,6 @@ public class Fungiado : MonoBehaviour
         {
             // Accelerate in the direction of target
             Vector2 forceDirection = (target.transform.position - transform.position).normalized;
-            transform.right = forceDirection;
             projectileRb.AddForce(forceDirection * force);
         }
     }
